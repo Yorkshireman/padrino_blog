@@ -1,8 +1,16 @@
+RACK_ENV = 'test' unless defined?(RACK_ENV)
+require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
+Dir[File.expand_path(File.dirname(__FILE__) + "/../app/helpers/**/*.rb")].each(&method(:require))
+
 require 'rack/test'
 require 'rspec/padrino'
 require 'capybara/rspec'
 
-Capybara.app = Padrino.application
+Capybara.app = Rack::Builder.new do
+  map "/" do
+    run ::Padrino.application
+  end
+end.to_app
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
