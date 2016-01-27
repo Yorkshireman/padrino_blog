@@ -23,13 +23,4 @@ PadrinoBlog::App.controllers :posts do
   # get '/example' do
   #   'Hello world!'
   # end
-  
-  get :index do
-
-  end
-
-  get :show do
-
-  end
-
 end
