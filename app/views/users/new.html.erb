@@ -1,0 +1,7 @@
+<% form_for(@user, '/users/create') do |f| %>
+  Name (public): <%= f.text_field :name %>
+  Email (private): <%= f.email_field :email %>
+  Password (private): <%= f.password_field :password %>
+  Password Confirmation (private): <%= f.password_field :password_confirmation %>
+  <%= f.submit 'Sign Up' %>
+<% end %>

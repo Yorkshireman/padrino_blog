@@ -1,1 +1,4 @@
-<%= partial 'posts/post', collection: @posts %>
+<%= link_to "Sign Up", 'users/new' %>
+<% if @posts %>
+  <%= partial 'posts/post', collection: @posts %>
+<% end %>

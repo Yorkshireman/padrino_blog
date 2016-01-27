@@ -8,7 +8,7 @@ module PadrinoBlog
     enable :sessions
 
     get "/" do
-      "Hello World!"
+      render '/posts/index'
     end
 
     get :about, :map => '/about_us' do

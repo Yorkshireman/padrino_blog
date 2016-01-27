@@ -3,14 +3,17 @@ require 'spec_helper'
 describe "User Features" do
   
   context "Signing Up" do
-    before(:each){ click_on 'Sign Up' }
+    before :each do
+      visit '/'
+      click_on 'Sign Up'
+    end
     
     it "can sign up with name, email, and matching password and password_confirmation" do
       expect(current_path).to eq '/users/new'
-      fill_in 'name', with: "Andy"
-      fill_in 'email', with: "user@email.com"
-      fill_in 'password', with: "password"
-      fill_in 'password_confirmation', with: "password"
+      fill_in 'user[name]', with: "Andy"
+      fill_in 'user[email]', with: "user@email.com"
+      fill_in 'user[password]', with: "password"
+      fill_in 'user[password_confirmation]', with: "password"
       click_on 'Sign Up'
       expect(current_path).to eq '/'
       expect(page).to have_content 'Signed up successfully!'
