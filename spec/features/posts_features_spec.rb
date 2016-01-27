@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature "Creating Posts" do
-  let(:user){ User.create(email: "user@email.com", password: "password", password_confirmation: "password") }
+  let(:user){ User.create(email: "user@email.com", password: "password") }
 
   it "Can create a post" do
     visit '/sessions/login'
