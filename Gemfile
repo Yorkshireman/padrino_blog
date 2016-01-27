@@ -22,6 +22,7 @@ gem 'sass'
 gem 'haml'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'sqlite3'
+gem 'guard-rspec', require: false
 
 # Test requirements
 group :test do
