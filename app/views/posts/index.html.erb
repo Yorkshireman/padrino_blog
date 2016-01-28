@@ -1,4 +1,7 @@
 <%= link_to "Sign Up", 'users/new' %>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 <% if @posts %>
   <%= partial 'posts/post', collection: @posts %>
 <% end %>

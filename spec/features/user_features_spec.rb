@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe "User Features" do
+  context "when not signed in" do
+    before(:each){ visit '/' }
+
+    xit "'Log out' is not visible"
+    xit "'Log in' is visible"
+    xit "'Log out' is not visible"
+  end
   
   context "Signing Up" do
     before :each do
