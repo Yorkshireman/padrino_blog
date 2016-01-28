@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 feature "Creating Posts" do
-  let(:user){ User.create(email: "user@email.com", password: "password") }
+  let(:user){ User.create(email: "user@email.com", password: "password", password_confirmation: "password") }
 
   it "Can create a post" do
-    visit '/sessions/login'
+    visit '/sessions/new'
     login(user)
     visit '/posts/new'
     fill_in 'title', with: "Title 1"
@@ -18,7 +18,6 @@ feature "Creating Posts" do
   def login(user)
     fill_in 'email', with: "#{user.email}"
     fill_in 'password', with: "password"
-    fill_in 'password confirmation', with: "password"
     click_on 'Login'
   end
 end
@@ -27,22 +26,25 @@ feature "Displaying Posts" do
 
   context 'Posts page' do
     before :each do
-      Post.create title: "Title1", body: "Content1"
-      Post.create title: "Title2", body: "Content2"
+      @post1 = Post.create title: "Title1", body: "Content1"
+      @post2 = Post.create title: "Title2", body: "Content2"
       visit '/posts'
     end
 
     it "can see posts' titles" do
-      expect(page).to have_content("Title1")
-      expect(page).to have_content("Title2")
+      expect(page).to have_content("#{@post1.title}")
+      expect(page).to have_content("#{@post2.title}")
     end
 
     it "can see posts' bodies" do
-      expect(page).to have_content("Content1")
-      expect(page).to have_content("Content2")
+      expect(page).to have_content("#{@post1.body}")
+      expect(page).to have_content("#{@post2.body}")
     end
 
-    xit "can see posts' authors"
+    it "can see posts' authors" do
+      expect(page).to have_content("#{@post1.user.name}")
+      expect(page).to have_content("#{@post2.user.name}")
+    end
   end
 
   context 'Post Show page' do

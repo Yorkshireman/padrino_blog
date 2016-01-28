@@ -22,7 +22,7 @@ describe "User Features" do
       fill_in 'user[password]', with: "password"
       fill_in 'user[password_confirmation]', with: "password"
       click_on 'Sign Up'
-      expect(current_path).to eq '/sessions/login'
+      expect(current_path).to eq '/sessions/new'
       expect(page).to have_content 'Signed up successfully! Please Log in'
     end
 
