@@ -8,7 +8,7 @@ PadrinoBlog::App.controllers :users do
   post :create, params: [:name, :email, :password, :password_confirmation] do
     user = User.new(params[:user])
     user.save
-    redirect('/', notice: "Signed up successfully!")
+    redirect('/sessions/login', notice: "Signed up successfully! Please Log in")
   end
 
 end
