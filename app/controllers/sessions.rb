@@ -9,6 +9,8 @@ PadrinoBlog::App.controllers :sessions do
     if user && user.authenticate(params[:password])
       session[:user] = user
       redirect('/', notice: "Successfully signed in!")
+    else
+      redirect('/sessions/new', notice: "One or more errors prevented you from logging-in")
     end
   end
 

@@ -1,15 +1,15 @@
 PadrinoBlog::App.controllers :posts do
 
+  get :new do
+    @post = Post.new
+    render 'posts/new'
+  end
+
   post :create do
-    @post = Post.new(params[:post])
-    if @post.save
-      @title = pat(:create_title, :model => "post #{@post.id}")
-      flash[:success] = pat(:create_success, :model => 'Post')
-      params[:save_and_continue] ? redirect(url(:posts, :index)) : redirect(url(:posts, :edit, :id => @post.id))
-    else
-      @title = pat(:create_title, :model => 'post')
-      flash.now[:error] = pat(:create_error, :model => 'post')
-      render 'posts/new'
+    post = Post.new(params[:post])
+    post.user = current_user
+    if post.save
+      redirect('/posts', notice: "Post Posted!")
     end
   end
 
