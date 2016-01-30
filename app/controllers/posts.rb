@@ -9,6 +9,8 @@ PadrinoBlog::App.controllers :posts do
     post = Post.new(params[:post])
     post.user = current_user
     if post.save
+      puts Post.all.count
+      puts Post.last.inspect
       redirect('/posts', notice: "Post Posted!")
     end
   end

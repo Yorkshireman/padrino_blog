@@ -12,6 +12,10 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
+<% if signed_in? %>
+  <%= link_to "Create Post", 'posts/new' %>
+<% end %>
+
 <% if @posts %>
   <%= partial 'posts/post', collection: @posts %>
 <% end %>
