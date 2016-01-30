@@ -28,11 +28,6 @@ feature "Post Features" do
         visit '/posts'
       end
 
-      after :all do
-        puts "POSTS COUNT:"
-        puts Post.all.count
-      end
-
       it "can see posts' titles" do
         expect(page).to have_content("#{@post1.title}")
         expect(page).to have_content("#{@post2.title}")
