@@ -18,6 +18,8 @@ describe User do
     end
 
     it{ should validate_presence_of :password_digest }
+    it{ should validate_presence_of :name }
+    it{ should validate_presence_of :email }
   end
 
   describe "User Authentication" do

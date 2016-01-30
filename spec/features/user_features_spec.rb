@@ -4,9 +4,13 @@ describe "User Features" do
   context "when not signed in" do
     before(:each){ visit '/' }
 
-    xit "'Log out' is not visible"
-    xit "'Log in' is visible"
-    xit "'Log out' is not visible"
+    it "'Logout' is not visible" do
+      expect(page).to_not have_content "Logout"
+    end
+
+    it "'Login' is visible" do
+      expect(page).to have_content "Login"
+    end
   end
   
   context "Signing Up" do
@@ -53,7 +57,24 @@ describe "User Features" do
       expect(page).to have_content "Password and Password Confirmation do not match. Please try again."
     end
 
-    xit "cannot sign up without a name"
-    xit "cannot sign up without an email"
+    it "cannot sign up without a name" do
+      fill_in 'user[email]', with: "user@email.com"
+      fill_in 'user[password]', with: "password"
+      fill_in 'user[password_confirmation]', with: "password"
+      click_on 'Sign Up'
+      expect(current_path).to eq '/users/new'
+      expect(page).to_not have_content "Signed up successfully! Please Log in"
+      expect(page).to have_content "Please make sure you fill in all fields."      
+    end
+
+    it "cannot sign up without an email" do
+      fill_in 'user[name]', with: "Andy"
+      fill_in 'user[password]', with: "password"
+      fill_in 'user[password_confirmation]', with: "password"
+      click_on 'Sign Up'
+      expect(current_path).to eq '/users/new'
+      expect(page).to_not have_content "Signed up successfully! Please Log in"
+      expect(page).to have_content "Please make sure you fill in all fields."      
+    end
   end
 end
