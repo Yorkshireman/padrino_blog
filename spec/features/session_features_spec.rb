@@ -35,4 +35,17 @@ feature "Sessions Features" do
       expect(page).to have_content "One or more errors prevented you from logging-in"
     end
   end
+
+  describe "Signing Out" do
+    it "can sign out" do
+      visit '/'
+      click_on 'Login'
+      login user
+      click_on 'Logout'
+      expect(page).to have_content "Logged out successfully"
+      expect(page).to have_content "Login"
+      expect(page).to have_content "Sign Up"
+      expect(page).to_not have_content "Logout"
+    end
+  end
 end

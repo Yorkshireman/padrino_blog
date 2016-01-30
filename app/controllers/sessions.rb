@@ -14,4 +14,8 @@ PadrinoBlog::App.controllers :sessions do
     end
   end
 
+  get :destroy do
+    session[:user] = nil
+    redirect('/', notice: "Logged out successfully")
+  end
 end
