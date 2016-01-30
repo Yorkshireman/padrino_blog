@@ -3,7 +3,7 @@ require_relative '../support/spec_helper_methods'
 
 feature "Sessions Features" do
   include SpecHelperMethods
-  let(:user){ User.create(email: "user@email.com", password: "password", password_confirmation: "password") }
+  let(:user){ User.create(name: "Andy", email: "user@email.com", password: "password", password_confirmation: "password") }
   
   describe "Signing in" do
     before :each do

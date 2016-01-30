@@ -32,6 +32,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'byebug'
 end
 
 # Padrino Stable Gem

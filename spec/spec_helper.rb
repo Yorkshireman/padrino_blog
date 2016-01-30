@@ -12,9 +12,9 @@ RSpec.configure do |config|
   config.include RSpec::Padrino
   config.include Capybara::DSL
 
-  config.around(:each) do |example|                                                    
+  config.around(:each) do |example|
     DatabaseCleaner.start
-    example.run                                                       
+    example.run
     DatabaseCleaner.clean
   end
 

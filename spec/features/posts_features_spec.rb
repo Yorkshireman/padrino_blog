@@ -17,17 +17,17 @@ feature "Post Features" do
       click_on 'Login'
       fill_in 'email', with: "bob@email.com"
       fill_in 'password', with: "password"
-      click_on 'Login'
+      click_on 'Login'      
       expect(page).to have_content "Successfully signed in!"
       click_on "Create Post"
       fill_in 'post[title]', with: "Title99"
       fill_in 'post[body]', with: "Body99"
       click_on "Post"
-      expect(current_path).to eq '/posts'
+      expect(page).to have_content "Post Posted!"
+      expect(page).to have_current_path('/posts')
       expect(page).to have_content "Title99"
       expect(page).to have_content "Body99"
       expect(page).to have_content "Bob"
-      expect(page).to have_content "Post Posted!"
     end
   end
 
