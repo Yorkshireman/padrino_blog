@@ -2,7 +2,7 @@
 
 Just a little Blog example app to get to know the Padrino framework.  
 
-I built the Authentication around ActiveRecord's `has_secure_password`.  
+I built the Authentication around ActiveRecord's `has_secure_password` and it was all built with TDD.  
 
 It also has an 'admin' app that I built because a blog told me to ;-), but I've since realised that it's not actually much use for this app, so I might get rid of it, along with the `Account` model that comes with it.  
 
