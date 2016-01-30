@@ -9,7 +9,7 @@ feature "Post Features" do
     it "Can create a post" do
       visit '/sessions/new'
       login user
-      visit '/posts/new'
+      click_on "Create Post"
       fill_in 'post[title]', with: "Title 1"
       fill_in 'post[body]', with: "Body"
       click_on "Post"
@@ -26,6 +26,11 @@ feature "Post Features" do
         @post1 = Post.create title: "Title1", body: "Content1", user: user
         @post2 = Post.create title: "Title2", body: "Content2", user: user
         visit '/posts'
+      end
+
+      after :all do
+        puts "POSTS COUNT:"
+        puts Post.all.count
       end
 
       it "can see posts' titles" do

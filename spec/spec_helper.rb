@@ -12,6 +12,12 @@ RSpec.configure do |config|
   config.include RSpec::Padrino
   config.include Capybara::DSL
 
+  config.around(:each) do |example|                                                    
+    DatabaseCleaner.start
+    example.run                                                       
+    DatabaseCleaner.clean
+  end
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

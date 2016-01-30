@@ -30,6 +30,7 @@ group :test do
   gem 'rack-test', :require => 'rack/test'
   gem 'rspec-padrino'
   gem 'capybara'
+  gem 'database_cleaner'
 end
 
 # Padrino Stable Gem
