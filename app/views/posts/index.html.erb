@@ -1,17 +1,3 @@
-<%= link_to "Sign Up", 'users/new' %>
-
-<% unless signed_in? %>
-  <%= link_to "Login", 'sessions/new' %>
-<% end %>
-
-<% if signed_in? %>
-  <%= link_to "Logout", 'sessions/destroy' %>
-<% end %>
-
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
-
 <% if signed_in? %>
   <%= link_to "Create Post", 'posts/new' %>
 <% end %>

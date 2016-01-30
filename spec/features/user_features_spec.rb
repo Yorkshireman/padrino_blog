@@ -25,7 +25,7 @@ describe "User Features" do
       fill_in 'user[email]', with: "user@email.com"
       fill_in 'user[password]', with: "password"
       fill_in 'user[password_confirmation]', with: "password"
-      click_on 'Sign Up'
+      click_button 'Sign Up'
       expect(current_path).to eq '/sessions/new'
       expect(page).to have_content 'Signed up successfully! Please Log in'
     end
@@ -33,7 +33,7 @@ describe "User Features" do
     it "cannot sign up without a password" do
       fill_in 'user[name]', with: "Andy"
       fill_in 'user[email]', with: "user@email.com"
-      click_on 'Sign Up'
+      click_button 'Sign Up'
       expect(current_path).to eq '/users/new'
       expect(page).to have_content "Please make sure you fill in all fields."
     end
@@ -42,7 +42,7 @@ describe "User Features" do
       fill_in 'user[name]', with: "Andy"
       fill_in 'user[email]', with: "user@email.com"
       fill_in 'user[password]', with: "password"
-      click_on 'Sign Up'
+      click_button 'Sign Up'
       expect(current_path).to eq '/users/new'
       expect(page).to have_content "Please make sure you fill in all fields."
     end
@@ -52,7 +52,7 @@ describe "User Features" do
       fill_in 'user[email]', with: "user@email.com"
       fill_in 'user[password]', with: "password"
       fill_in 'user[password_confirmation]', with: "passwor"
-      click_on 'Sign Up'
+      click_button 'Sign Up'
       expect(current_path).to eq '/users/new'
       expect(page).to have_content "Password and Password Confirmation do not match. Please try again."
     end
@@ -61,7 +61,7 @@ describe "User Features" do
       fill_in 'user[email]', with: "user@email.com"
       fill_in 'user[password]', with: "password"
       fill_in 'user[password_confirmation]', with: "password"
-      click_on 'Sign Up'
+      click_button 'Sign Up'
       expect(current_path).to eq '/users/new'
       expect(page).to_not have_content "Signed up successfully! Please Log in"
       expect(page).to have_content "Please make sure you fill in all fields."      
@@ -71,7 +71,7 @@ describe "User Features" do
       fill_in 'user[name]', with: "Andy"
       fill_in 'user[password]', with: "password"
       fill_in 'user[password_confirmation]', with: "password"
-      click_on 'Sign Up'
+      click_button 'Sign Up'
       expect(current_path).to eq '/users/new'
       expect(page).to_not have_content "Signed up successfully! Please Log in"
       expect(page).to have_content "Please make sure you fill in all fields."      

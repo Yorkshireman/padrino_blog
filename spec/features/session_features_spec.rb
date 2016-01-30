@@ -22,7 +22,7 @@ feature "Sessions Features" do
     it "cannot sign in with invalid email" do
       fill_in 'email', with: "invalid@email.com"
       fill_in 'password', with: "password"
-      click_on 'Login'
+      click_button 'Login'
       expect(current_path).to eq '/sessions/new'
       expect(page).to have_content "One or more errors prevented you from logging-in"
     end
@@ -30,7 +30,7 @@ feature "Sessions Features" do
     it "cannot sign in with invalid password" do
       fill_in 'email', with: "#{user.email}"
       fill_in 'password', with: "invalidpassword"
-      click_on 'Login'
+      click_button 'Login'
       expect(current_path).to eq '/sessions/new'
       expect(page).to have_content "One or more errors prevented you from logging-in"
     end

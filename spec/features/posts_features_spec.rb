@@ -8,21 +8,20 @@ feature "Post Features" do
   describe "Creating Posts" do
     it "Can create a post" do
       visit '/'
-      click_on "Sign Up"
+      click_link "Sign Up"
       fill_in 'user[name]', with: "Bob"
       fill_in 'user[email]', with: "bob@email.com"
       fill_in 'user[password]', with: "password"
       fill_in 'user[password_confirmation]', with: "password"
-      click_on 'Sign Up'
-      click_on 'Login'
+      click_button 'Sign Up'
       fill_in 'email', with: "bob@email.com"
       fill_in 'password', with: "password"
-      click_on 'Login'      
+      click_button 'Login'      
       expect(page).to have_content "Successfully signed in!"
       click_on "Create Post"
       fill_in 'post[title]', with: "Title99"
       fill_in 'post[body]', with: "Body99"
-      click_on "Post"
+      click_button "Post"
       expect(page).to have_content "Post Posted!"
       expect(page).to have_current_path('/posts')
       expect(page).to have_content "Title99"

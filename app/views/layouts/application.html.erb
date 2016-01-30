@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Padrino Blog App Example | Andrew Stelmach</title>
+  </head>
+  <body>
+    <%= link_to "Sign Up", 'users/new' %>
+
+    <% unless signed_in? %>
+      <%= link_to "Login", 'sessions/new' %>
+    <% end %>
+
+    <% if signed_in? %>
+      <%= link_to "Logout", 'sessions/destroy' %>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+    <%= yield %>
+    <footer>
+    <p>Created by <%= link_to 'Andrew Stelmach', 'http://github.com/yorkshireman/' %></p>
+    </footer>
+  </body>
+</html>

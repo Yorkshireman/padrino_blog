@@ -1,7 +1,3 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
-
 <% form_for(@user, '/users/create') do |f| %>
   Name (public): <%= f.text_field :name %>
   Email (private): <%= f.email_field :email %>
