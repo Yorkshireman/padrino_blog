@@ -6,6 +6,10 @@ I built the Authentication around ActiveRecord's `has_secure_password` and it wa
 
 It also has an 'admin' app that I built because a blog told me to ;-), but I've since realised that it's not actually much use for this app, so I might get rid of it, along with the `Account` model that comes with it.  
 
+####Other ToDo's:  
+- Refactor controller logic out into methods (not sure at the moment how to do this at the moment)  
+- CSS  
+
 Testing was done with RSpec and Capybara. Capybara took a bit of setting up, but nothing major (if you know what you're doing! Which I didn't, at first).  
 
 It isn't deployed online yet. To run locally:  
