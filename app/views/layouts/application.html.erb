@@ -4,27 +4,37 @@
     <meta charset="UTF-8">
     <title>Padrino Blog App Example | Andrew Stelmach</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-overrides.css">
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class='container'>
-      <%= link_to "Sign Up", 'users/new' %>
+    <div id='wrap'>
+      
+      <main class='container'>
+        <%= link_to "Sign Up", 'users/new' %>
 
-      <% unless signed_in? %>
-        <%= link_to "Login", 'sessions/new' %>
-      <% end %>
+        <% unless signed_in? %>
+          <%= link_to "Login", 'sessions/new' %>
+        <% end %>
 
-      <% if signed_in? %>
-        <%= link_to "Logout", 'sessions/destroy' %>
-      <% end %>
+        <% if signed_in? %>
+          <%= link_to "Logout", 'sessions/destroy' %>
+        <% end %>
 
-      <% if flash[:notice] %>
-        <p><%= flash[:notice] %></p>
-      <% end %>
-      <%= yield %>
-      <footer>
-      <p>Created by <%= link_to 'Andrew Stelmach', 'http://github.com/yorkshireman/' %></p>
-      </footer>
+        <% if flash[:notice] %>
+          <p><%= flash[:notice] %></p>
+        <% end %>
+        <%= yield %>
+      </main>
+
+      <div id='push'></div>
+    
     </div>
+
+    <footer>
+      <div class='container'>
+        <p>Created by <%= link_to 'Andrew Stelmach', 'http://github.com/yorkshireman/' %></p>
+      </div>
+    </footer>
   </body>
 </html>
