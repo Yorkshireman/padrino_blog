@@ -24,7 +24,7 @@ feature "Sessions Features" do
       fill_in 'password', with: "password"
       click_button 'Login'
       expect(current_path).to eq '/sessions/new'
-      expect(page).to have_content "One or more errors prevented you from logging-in"
+      expect(page).to have_content "Email or password incorrect"
     end
 
     it "cannot sign in with invalid password" do
@@ -32,7 +32,7 @@ feature "Sessions Features" do
       fill_in 'password', with: "invalidpassword"
       click_button 'Login'
       expect(current_path).to eq '/sessions/new'
-      expect(page).to have_content "One or more errors prevented you from logging-in"
+      expect(page).to have_content "Email or password incorrect"
     end
   end
 

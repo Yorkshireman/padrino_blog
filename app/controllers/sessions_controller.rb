@@ -9,7 +9,7 @@ PadrinoBlog::App.controllers :sessions do
       session[:user] = user
       redirect('/', notice: "Successfully signed in!")
     else
-      redirect('/sessions/new', notice: "One or more errors prevented you from logging-in")
+      redirect('/sessions/new', notice: "Email or password incorrect")
     end
   end
 
