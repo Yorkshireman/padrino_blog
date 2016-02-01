@@ -8,8 +8,9 @@ It also has an 'admin' app that I built because a blog told me to ;-), but I've 
 
 ####Other ToDo's:  
 - Refactor controller logic out into methods (not sure at the moment how to do this at the moment)  
-- CSS  
-- Check BCrypt's error handling, as might be able to eliminate form-error handling from the users_controller.
+- CSS  (especially building the navbar)  
+- Check BCrypt's error handling, as might be able to eliminate form-error handling from the users_controller.  
+- Make flash messages appear/disappear.  
 
 Testing was done with RSpec and Capybara. Capybara took a bit of setting up, but nothing major (if you know what you're doing! Which I didn't, at first).  
 
