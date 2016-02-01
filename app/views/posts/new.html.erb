@@ -1,5 +1,9 @@
 <% form_for(@post, '/posts/create') do |f| %>
-  Title: <%= f.text_field :title %>
-  Content: <%= f.text_area :body %>
-  <%= f.submit "Post" %>
+  <div class='form-group'>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+    <label for='post_body'>Content:</label>
+    <%= f.text_area :body, class: 'form-control' %>
+    <%= f.submit "Post", class: 'btn btn-primary' %>
+  </div>
 <% end %>
