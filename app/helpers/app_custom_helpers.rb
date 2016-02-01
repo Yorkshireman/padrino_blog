@@ -1,8 +1,6 @@
-# Helper methods defined here can be accessed in any controller or view in the application
-
 module PadrinoBlog
   class App
-    module SessionsHelper
+    module AppCustomHelpers
       def current_user
         session[:user]
       end
@@ -12,6 +10,6 @@ module PadrinoBlog
       end
     end
 
-    helpers SessionsHelper
+    helpers AppCustomHelpers
   end
 end

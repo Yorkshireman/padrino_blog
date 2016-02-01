@@ -10,7 +10,7 @@ PadrinoBlog::App.controllers :users do
     
     if user.save
       redirect('/sessions/new', notice: "Signed up successfully! Please Log in")
-    elsif (params[:user][:password_confirmation] != "") && (params[:user][:password] != params[:user][:password_confirmation])
+    elsif password_and_password_confirmation_mismatch?
       redirect('/users/new', notice: "Password and Password Confirmation do not match. Please try again.")
     else
       redirect('/users/new', notice: "Please make sure you fill in all fields.")
